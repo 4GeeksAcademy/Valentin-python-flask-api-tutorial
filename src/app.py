@@ -16,14 +16,14 @@ def hello_world():
 def add_new_todo():
     request_body = request.get_json(force=True)
     print("Incoming request with the following body:", request_body)
-    todos.append(request_body)  # Add the request body to the todos list
-    return jsonify(todos)  # Return the updated todos list as JSON
+    todos.append(request_body)  
+    return jsonify(todos) 
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
     if position < len(todos):
-        del todos[position]  # Remove the task at the specified position
-        return jsonify(todos)  # Return the updated todos list as JSON
+        del todos[position]  
+        return jsonify(todos)
     else:
         return 'Invalid position'
 
